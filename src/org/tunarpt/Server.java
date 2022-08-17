@@ -39,6 +39,11 @@ public class Server {
     }
 
     private void handleRequest() throws IOException {
+        String[] request = in.readLine().split(" ");
+        int ACTION_INDEX = 0;
+        int URL_INDEX = 1;
 
+        String action = request[ACTION_INDEX];
+        String url = request[URL_INDEX];
     }
 }
