@@ -46,6 +46,15 @@ public class Server {
 
         String action = request[ACTION_INDEX];
         String url = request[URL_INDEX];
+        if (!Objects.equals(action, "GET") || !Objects.equals(url, "/")){
+            out.write("HTTP/1.1 404 NOT FOUND");
+            out.write("Content-Type: text/plain\r\n");
+            out.write("\r\n");
+            out.write("<html><body><h1>This page doesn't exist</h1><body/><html/>");
+            out.flush();
+            out.close();
+            return;
+        }
 
         out.write("HTTP/1.1 200 OK");
         out.write("Content-Type: text/plain\r\n");
