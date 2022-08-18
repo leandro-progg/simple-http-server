@@ -3,6 +3,7 @@ package org.tunarpt;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Objects;
 
 public class Server {
     private final int SERVER_PORT = 8080;
@@ -45,5 +46,12 @@ public class Server {
 
         String action = request[ACTION_INDEX];
         String url = request[URL_INDEX];
+
+        out.write("HTTP/1.1 200 OK");
+        out.write("Content-Type: text/plain\r\n");
+        out.write("\r\n");
+        out.write("<html><body><h1>Hello World</h1><body/><html/>");
+        out.flush();
+        out.close();
     }
 }
